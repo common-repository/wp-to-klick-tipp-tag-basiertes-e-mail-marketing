@@ -1,0 +1,77 @@
+<?php if ($wptktAdmin->klickTippL()) : $bKlickTipp = FALSE;?>
+    <div class="updated">
+        <p>
+            <?php echo sprintf(__('You can not export your legacy data with the free version!<br /> In the premium version you can export <strong>WooCommerce<br /> customer, order data</strong> and <strong>Wordpress user</strong>.<br /> Please get your <a href="%s" target="_blank"><strong>Premium License</strong></a> here.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), $wptktAdmin->getPromoUrl()); ?>
+        </p>
+    </div>
+<?php else: $bKlickTipp = TRUE;?>
+<?php endif; ?>
+<form action="admin.php?page=wptkt&mod=export&action=download" method="post">
+<table cellspacing="0" class="wptkt_table widefat">
+    <thead>
+        <tr>
+            <th colspan="2"><?php _e('CSV Export', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2">
+                <?php _e('Use the CSV Export for the initial user data transfer.<br /> Your future data will be synced automatically and action based via the plugin.<br /><br /><strong>All Autoresponder:</strong> Please look at the import tutorials from your email marketing provider.<br /><br /> <strong>Klick-Tipp:</strong> You can import your existing data directly into Klick-Tipp when you are running a Klick-Tipp Enterprise Version. (/ContactCloud/Import)<br />If you do not have a Klick-Tipp Enterprise Version, <a href="https://www.klick-tipp.com/bestellen/15194" target="_blank">buy one here</a>, if you want to stay with your version contact the support at <a href="mailto:hilfe@klick-tipp.com">hilfe@klick-tipp.com.</a><br />Please add the below generated file to your request.<br /><br />Here you can get your CSV file:<br />', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <?php _e('Last CSV Export', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+            </td>
+            <td>
+                <p>
+                    <?php echo $wptktAdmin->getLastExport('wptkt_last_export_CSV'); ?>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label for="download-depth"><?php _e('Export', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+            </th>
+            <td>
+                <select name="download-depth">
+                	<?php if ($bKlickTipp) : ?>
+                    <option value="download-all"><?php _e('all data', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></option>
+                    <option value="download-last"><?php _e('Only new data.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); echo '&nbsp;'.$wptktAdmin->getLastExport('wptkt_last_export_CSV'); ?></option>
+                    <?php else: ?>
+                    <option value="download-all"><?php _e('Only available in premium version', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></option>
+                    <?php endif; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label for="download-value"><?php _e('Which data?', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+            </th>
+            <td>
+                <select name="download-value">
+                	<?php if ($bKlickTipp) : ?>
+                    <option value="download-all"><?php _e('all user', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></option>
+                    <option value="download-customers"><?php _e('user with orders', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></option>
+                    <option value="download-customers_6month"><?php _e('user with orders within the last 6 months', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></option>
+                    <?php else: ?>
+                    <option value="download-all"><?php _e('Only available in premium version', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></option>
+                    <?php endif; ?>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <?php _e('<br />Data in CSV file:<br />Email address, name, company, address, phone, tagging: order status, products, categories, money spent and order within last 3/6 month<br />The CSV file is tab and comma separated with quotation marks as text delimiter<br /><b>At the moment CSV Export working only when WooCommerce is installed and if there are some orders.</b>', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<?php if ($bKlickTipp) : ?>
+<p class="submit">
+    <input type="submit"  class="button-primary" value="<?php _e('download file', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>"/>
+</p>
+<?php endif; ?>
+</form>

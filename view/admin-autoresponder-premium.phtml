@@ -1,0 +1,453 @@
+<form method="GET" action="admin.php">
+    <input type="hidden" name="page" value="wptkt" />
+    <input type="hidden" name="mod" value="autoresponder" />
+    <select id="ar_select_submit" name="ar">
+        <option value="" <?php if ($wptktAdmin->getSelectedAutoresponder() == '') { echo "selected"; } ?>>
+            <?php _e('Select Autoresponderfilter', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+        </option>
+        <?php
+            foreach ($wptktAdmin->getAllAutoresponder() AS $key => $name) {
+                $selectedAutoresponder = ($wptktAdmin->getSelectedAutoresponder() == $key) ? 'selected': '';
+                echo '<option value="' . $key . '" ' . $selectedAutoresponder . '>' . $name . '</option>';
+            }
+        ?>
+    </select>
+    <script>
+        jQuery(function() {
+            jQuery('#ar_select_submit').change(function() {
+                this.form.submit();
+            });
+        });
+    </script>
+</form>
+
+<?php
+$autoresponder = $wptktAdmin->getCurrentSelectedAutoresponder();
+$formUrl = 'admin.php?page=wptkt&mod=autoresponder&action=save-autoresponder';
+if (isset($_GET['ar'])) {
+    $formUrl .= '&ar=' . $_GET['ar'];
+}
+?>
+<form method="post" action="<?php echo $formUrl; ?>">
+    <script src="<?php echo WP_TO_KLICK_TIPP_URL . 'inc/js/arcode.js'; ?>" type="text/javascript"></script>
+
+    <table class="form-table widefat">
+      <thead>
+          <tr>
+              <th colspan="3"><?php _e('Autoresponder Options', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+          </tr>
+      </thead>
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Filter Name', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="input" class="regular-text" name="ar_select_name" value="<?php echo $autoresponder['name']; ?>" />
+                    <br /><small><?php _e('Choose a different name to save a new autoresponder.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+
+
+            <tr>
+              <th scope="row">
+                  <?php _e('WP User Role', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+              </th>
+              <td>
+                  <select name="ar_user_role[]" id="ar-user-role" class="chosen-select" multiple>
+                      <?php
+                          foreach ($wptktAdmin->getUserRoles() AS $key => $name) {
+                              $selected = '';
+                              foreach ($autoresponder['user_role'] AS $userRole) {
+                                  if ($userRole == $key) {
+                                      $selected = 'selected="selected"';
+                                  }
+                              }
+                              echo '<option value="' . $key . '"' . $selected . '>' . $key . '</option>';
+                          }
+                      ?>
+                  </select>
+                  <p>
+                      <button type="button" class="button" value="" id="ar-user-role-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                      <button type="button" class="button" value="" id="ar-user-role-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                  </p>
+                  <script>
+                      jQuery(document).ready(function() {
+                          jQuery("#ar-user-role").chosen({
+                              'width': '95%',
+                              'placeholder_text_multiple': ' '
+                          });
+
+                          // tell Chosen that a select has changed
+                          jQuery('#ar-user-role-all-button').click(function() {
+                              jQuery('#ar-user-role option').attr('selected', 'selected');
+                              jQuery('#ar-user-role').trigger('chosen:updated');
+                          });
+                          jQuery('#ar-user-role-reset-button').click(function() {
+                              jQuery('#ar-user-role option').removeAttr('selected');
+                              jQuery('#ar-user-role').trigger('chosen:updated');
+                          });
+                      });
+                  </script>
+              </td>
+              </tr><tr>
+                <th scope="row">
+                    <?php _e('WP User Role (NOT)', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <select name="ar_user_role_not[]" id="ar-user-role-not" class="chosen-select" multiple>
+                        <?php
+                            foreach ($wptktAdmin->getUserRoles() AS $key => $name) {
+                                $selected = '';
+                                foreach ($autoresponder['user_role_not'] AS $userRole) {
+                                    if ($userRole == $key) {
+                                        $selected = 'selected="selected"';
+                                    }
+                                }
+                                echo '<option value="' . $key . '"' . $selected . '>' . $key . '</option>';
+                            }
+                        ?>
+                    </select>
+                    <p>
+                        <button type="button" class="button" value="" id="ar-user-role-not-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                        <button type="button" class="button" value="" id="ar-user-role-not-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                    </p>
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery("#ar-user-role-not").chosen({
+                                'width': '95%',
+                                'placeholder_text_multiple': ' '
+                            });
+
+                            // tell Chosen that a select has changed
+                            jQuery('#ar-user-role-not-all-button').click(function() {
+                                jQuery('#ar-user-role-not option').attr('selected', 'selected');
+                                jQuery('#ar-user-role-not').trigger('chosen:updated');
+                            });
+                            jQuery('#ar-user-role-not-reset-button').click(function() {
+                                jQuery('#ar-user-role-not option').removeAttr('selected');
+                                jQuery('#ar-user-role-not').trigger('chosen:updated');
+                            });
+                        });
+                    </script>
+                </td>
+                </tr>
+
+
+              <tr>
+                <th scope="row">
+                    <?php _e('WOO Order Status', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <select name="ar_woo_status[]" id="ar-woo-status" class="chosen-select" multiple>
+                        <?php
+                            foreach ($wptktAdmin->getWooStatuses() AS $key => $name) {
+                                $selected = '';
+                                foreach ($autoresponder['woo_status'] AS $status) {
+                                    if ($status == $key) {
+                                        $selected = 'selected="selected"';
+                                    }
+                                }
+                                echo '<option value="' . $key . '" ' . $selected . '>' . $name . '</option>';
+                            }
+                        ?>
+                    </select>
+                    <p>
+                        <button type="button" class="button" value="" id="ar-woo-status-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                        <button type="button" class="button" value="" id="ar-woo-status-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                    </p>
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery("#ar-woo-status").chosen({
+                                'width': '95%',
+                                'placeholder_text_multiple': ' '
+                            });
+
+                            // tell Chosen that a select has changed
+                            jQuery('#ar-woo-status-all-button').click(function() {
+                                jQuery('#ar-woo-status option').attr('selected', 'selected');
+                                jQuery('#ar-woo-status').trigger('chosen:updated');
+                            });
+                            jQuery('#ar-woo-status-reset-button').click(function() {
+                                jQuery('#ar-woo-status option').removeAttr('selected');
+                                jQuery('#ar-woo-status').trigger('chosen:updated');
+                            });
+                        });
+                    </script>
+                </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                  <?php _e('WOO Order Status (NOT)', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+              </th>
+              <td>
+                  <select name="ar_woo_status_not[]" id="ar-woo-status-not" class="chosen-select" multiple>
+                      <?php
+                          foreach ($wptktAdmin->getWooStatuses() AS $key => $name) {
+                              $selected = '';
+                              foreach ($autoresponder['woo_status_not'] AS $status) {
+                                  if ($status == $key) {
+                                      $selected = 'selected="selected"';
+                                  }
+                              }
+                              echo '<option value="' . $key . '" ' . $selected . '>' . $name . '</option>';
+                          }
+                      ?>
+                  </select>
+                  <p>
+                      <button type="button" class="button" value="" id="ar-woo-status-not-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                      <button type="button" class="button" value="" id="ar-woo-status-not-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                  </p>
+                  <script>
+                      jQuery(document).ready(function() {
+                          jQuery("#ar-woo-status-not").chosen({
+                              'width': '95%',
+                              'placeholder_text_multiple': ' '
+                          });
+
+                          // tell Chosen that a select has changed
+                          jQuery('#ar-woo-status-not-all-button').click(function() {
+                              jQuery('#ar-woo-status-not option').attr('selected', 'selected');
+                              jQuery('#ar-woo-status-not').trigger('chosen:updated');
+                          });
+                          jQuery('#ar-woo-status-not-reset-button').click(function() {
+                              jQuery('#ar-woo-status-not option').removeAttr('selected');
+                              jQuery('#ar-woo-status-not').trigger('chosen:updated');
+                          });
+                      });
+                  </script>
+              </td>
+          </tr>
+
+
+            <tr>
+
+              <th scope="row">
+                  <?php _e('WOO Product', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+              </th>
+              <td>
+                  <select name="ar_woo_product[]" id="ar-woo-product" class="chosen-select" multiple>
+                      <?php
+                          foreach ($wptktAdmin->getWooProducts() AS $key => $name) {
+                              $selected = '';
+                              foreach ($autoresponder['woo_product'] AS $product) {
+                                  if ($product == $key) {
+                                      $selected = 'selected="selected"';
+                                  }
+                              }
+                              echo '<option value="' . $key . '"' . $selected . '>' . $name . '</option>';
+                          }
+                      ?>
+                  </select>
+                  <p>
+                      <button type="button" class="button" value="" id="ar-woo-product-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                      <button type="button" class="button" value="" id="ar-woo-product-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                  </p>
+                  <script>
+                      jQuery(document).ready(function() {
+                          jQuery("#ar-woo-product").chosen({
+                              'width': '95%',
+                              'placeholder_text_multiple': ' '
+                          });
+
+                          // tell Chosen that a select has changed
+                          jQuery('#ar-woo-product-all-button').click(function() {
+                              jQuery('#ar-woo-product option').attr('selected', 'selected');
+                              jQuery('#ar-woo-product').trigger('chosen:updated');
+                          });
+                          jQuery('#ar-woo-product-reset-button').click(function() {
+                              jQuery('#ar-woo-product option').removeAttr('selected');
+                              jQuery('#ar-woo-product').trigger('chosen:updated');
+                          });
+                      });
+                  </script>
+              </td>
+              </tr>
+              <tr>
+
+                <th scope="row">
+                    <?php _e('WOO Product (NOT)', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <select name="ar_woo_product_not[]" id="ar-woo-product-not" class="chosen-select" multiple>
+                        <?php
+                            foreach ($wptktAdmin->getWooProducts() AS $key => $name) {
+                                $selected = '';
+                                foreach ($autoresponder['woo_product_not'] AS $product) {
+                                    if ($product == $key) {
+                                        $selected = 'selected="selected"';
+                                    }
+                                }
+                                echo '<option value="' . $key . '"' . $selected . '>' . $name . '</option>';
+                            }
+                        ?>
+                    </select>
+                    <p>
+                        <button type="button" class="button" value="" id="ar-woo-product-not-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                        <button type="button" class="button" value="" id="ar-woo-product-not-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                    </p>
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery("#ar-woo-product-not").chosen({
+                                'width': '95%',
+                                'placeholder_text_multiple': ' '
+                            });
+
+                            // tell Chosen that a select has changed
+                            jQuery('#ar-woo-product-not-all-button').click(function() {
+                                jQuery('#ar-woo-product-not option').attr('selected', 'selected');
+                                jQuery('#ar-woo-product-not').trigger('chosen:updated');
+                            });
+                            jQuery('#ar-woo-product-not-reset-button').click(function() {
+                                jQuery('#ar-woo-product-not option').removeAttr('selected');
+                                jQuery('#ar-woo-product-not').trigger('chosen:updated');
+                            });
+                        });
+                    </script>
+                </td>
+                </tr>
+
+
+              <tr>
+
+                <th scope="row">
+                    <?php _e('WOO Product Category', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <select name="ar_woo_product_category[]" id="ar-woo-product-category" class="chosen-select" multiple>
+                        <?php
+                            foreach ($wptktAdmin->getWooCategories() AS $key => $name) {
+                                $selected = '';
+                                foreach ($autoresponder['woo_product_category'] AS $productCategory) {
+                                    if ($productCategory == $key) {
+                                        $selected = 'selected="selected"';
+                                    }
+                                }
+                                echo '<option value="' . $key . '"' . $selected . '>' . $name . '</option>';
+                            }
+                        ?>
+                    </select>
+                    <p>
+                        <button type="button" class="button" value="" id="ar-woo-product-category-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                        <button type="button" class="button" value="" id="ar-woo-product-category-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                    </p>
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery("#ar-woo-product-category").chosen({
+                                'width': '95%',
+                                'placeholder_text_multiple': ' '
+                            });
+
+                            // tell Chosen that a select has changed
+                            jQuery('#ar-woo-product-category-all-button').click(function() {
+                                jQuery('#ar-woo-product-category option').attr('selected', 'selected');
+                                jQuery('#ar-woo-product-category').trigger('chosen:updated');
+                            });
+                            jQuery('#ar-woo-product-category-reset-button').click(function() {
+                                jQuery('#ar-woo-product-category option').removeAttr('selected');
+                                jQuery('#ar-woo-product-category').trigger('chosen:updated');
+                            });
+                        });
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+
+              <th scope="row">
+                  <?php _e('WOO Product Category (NOT)', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+              </th>
+              <td>
+                  <select name="ar_woo_product_category_not[]" id="ar-woo-product-category-not" class="chosen-select" multiple>
+                      <?php
+                          foreach ($wptktAdmin->getWooCategories() AS $key => $name) {
+                              $selected = '';
+                              foreach ($autoresponder['woo_product_category_not'] AS $productCategory) {
+                                  if ($productCategory == $key) {
+                                      $selected = 'selected="selected"';
+                                  }
+                              }
+                              echo '<option value="' . $key . '"' . $selected . '>' . $name . '</option>';
+                          }
+                      ?>
+                  </select>
+                  <p>
+                      <button type="button" class="button" value="" id="ar-woo-product-category-not-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                      <button type="button" class="button" value="" id="ar-woo-product-category-not-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                  </p>
+                  <script>
+                      jQuery(document).ready(function() {
+                          jQuery("#ar-woo-product-category-not").chosen({
+                              'width': '95%',
+                              'placeholder_text_multiple': ' '
+                          });
+
+                          // tell Chosen that a select has changed
+                          jQuery('#ar-woo-product-category-not-all-button').click(function() {
+                              jQuery('#ar-woo-product-category-not option').attr('selected', 'selected');
+                              jQuery('#ar-woo-product-category-not').trigger('chosen:updated');
+                          });
+                          jQuery('#ar-woo-product-category-not-reset-button').click(function() {
+                              jQuery('#ar-woo-product-category-not option').removeAttr('selected');
+                              jQuery('#ar-woo-product-category-not').trigger('chosen:updated');
+                          });
+                      });
+                  </script>
+              </td>
+          </tr>
+
+
+            <tr>
+                <th scope="row">
+                    <?php _e('HTML Subscription Form Code', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <textarea class="large-text" rows="10" cols="30" id="ar_code" name="ar_code"><?php echo stripslashes($autoresponder['ar_code']); ?></textarea>
+                    <div id="arcode_hdn_div"></div>
+                    <div id="arcode_hdn_div2"></div>
+                    <small><?php echo sprintf(__('Please paste here only HTML forms, no iframes. More easy the code looks the better.<br /><a href="%s" target="_blank">Access to the tutorial</a> how to create a simple subscription form.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), 'https://saleswonder.biz/?p=1083' . $wptktAdmin->getAffiliateParameterString()); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder URL', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="text" value="<?php echo stripslashes($autoresponder['ar_url']); ?>" class="large-text" id="ar_url" name="ar_url"><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Name Field', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="text" value="<?php echo stripslashes($autoresponder['ar_name']); ?>" class="regular-text" id="ar_name" name="ar_name"><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Email Field', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="text" value="<?php echo stripslashes($autoresponder['ar_email']); ?>" class="regular-text" id="ar_email" name="ar_email"><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Hidden Fields', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <textarea class="large-text" rows="10" cols="30" id="ar_hidden" name="ar_hidden"><?php echo stripslashes($autoresponder['ar_hidden']); ?></textarea><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="submit">
+        <input type="submit" value="<?php _e('Save Settings', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button button-primary" id="submit-others" name="submit-save">
+        <input type="submit" value="<?php _e('Reset', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button" id="reset-others" name="submit-reset">
+    </p>
+</form>

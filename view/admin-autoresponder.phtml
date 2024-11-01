@@ -1,0 +1,124 @@
+<div class="updated">
+    <p>
+        <?php echo sprintf(__('With the free version you can only trigger sending data by WooCommerce order status.<br />You want to trigger your autoresponder by <strong>WP User Roles</strong>, <strong>WOO Products</strong>, <strong>WOO Categories</strong>?<br />You want to sent data to <strong>multiple autoresponder and subscriber lists</strong> at the same time? <br />Then get your <a href="%s" target="_blank"><strong>Premium License</strong></a> now.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), $wptktAdmin->getPromoUrl()); ?>
+    </p>
+</div>
+
+<form method="post" action="admin.php?page=wptkt&mod=autoresponder&action=save-autoresponder">
+
+    <script src="<?php echo WP_TO_KLICK_TIPP_URL . 'inc/js/arcode.js'; ?>" type="text/javascript"></script>
+
+    <table cellspacing="0" class="form-table widefat">
+      <thead>
+          <tr>
+              <th colspan="3"><?php _e('Autoresponder Options', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+          </tr>
+      </thead>
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <?php _e('WOO Order Status', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <select name="ar_woo_status[]" id="ar-woo-status" class="chosen-select" multiple>
+                        <?php
+                            $arStatuses = get_option('wptkt_autoresponderWooStatus');
+                            foreach ($wptktAdmin->getWooStatuses() AS $key => $name) {
+                                $selected = '';
+                                if (is_array($arStatuses) && !empty($arStatuses)) {
+                                    foreach ($arStatuses AS $status) {
+                                        if ($status == $key) {
+                                            $selected = 'selected="selected"';
+                                        }
+                                    }
+                                }
+                                echo '<option value="' . $key . '"' . $selected . '>' . $name . '</option>';
+                            }
+                        ?>
+                    </select>
+                    <p>
+                        <button type="button" class="button" value="" id="ar-woo-status-all-button"><?php _e('Add All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                        <button type="button" class="button" value="" id="ar-woo-status-reset-button"><?php _e('Remove All', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></button>
+                    </p>
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery("#ar-woo-status").chosen({
+                                'width': '99%',
+                                'placeholder_text_multiple': ' '
+                            });
+
+                            // tell Chosen that a select has changed
+                            jQuery('#ar-woo-status-all-button').click(function() {
+                                jQuery('#ar-woo-status option').attr('selected', 'selected');
+                                jQuery('#ar-woo-status').trigger('chosen:updated');
+                            });
+                            jQuery('#ar-woo-status-reset-button').click(function() {
+                                jQuery('#ar-woo-status option').removeAttr('selected');
+                                jQuery('#ar-woo-status').trigger('chosen:updated');
+                            });
+                        });
+                    </script>
+
+
+                </td>
+            </tr>
+<tr>
+  <th scope="row">
+    <?php _e('Premium', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+  <td><?php echo '<img src="'.WP_TO_KLICK_TIPP_URL.'/assets/img/premium-autoresponder.png'.'" alt="Premium features" width="100%"/>'; ?></td>
+  
+</tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('HTML Subscription Form Code', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <textarea class="large-text" rows="10" cols="30" id="ar_code" name="ar_code"><?php echo stripslashes(get_option('wptkt_autoresponderCode')); ?></textarea>
+                    <div id="arcode_hdn_div"></div>
+                    <div id="arcode_hdn_div2"></div>
+                    <small><?php echo sprintf(__('Please paste here only HTML forms, no iframes. More easy the code looks the better.<br /><a href="%s" target="_blank">Access to the tutorial</a> how to create a simple subscription form.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), 'https://saleswonder.biz/?p=1083' . $wptktAdmin->getAffiliateParameterString()); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder URL', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="text" value="<?php echo stripslashes(get_option('wptkt_autoresponderUrl')); ?>" class="large-text" id="ar_url" name="ar_url"><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Name Field', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="text" value="<?php echo stripslashes(get_option('wptkt_autoresponderName')); ?>" class="regular-text" id="ar_name" name="ar_name"><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Email Field', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <input type="text" value="<?php echo stripslashes(get_option('wptkt_autoresponderEmail')); ?>" class="regular-text" id="ar_email" name="ar_email"><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <?php _e('Autoresponder Hidden Fields', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </th>
+                <td>
+                    <textarea class="large-text" rows="10" cols="30" id="ar_hidden" name="ar_hidden"><?php echo stripslashes(get_option('wptkt_autoresponderHidden')); ?></textarea><br>
+                    <small><?php _e('This field should be auto filled up, when you paste the simple subscription form code above.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="submit">
+        <input type="submit" value="<?php _e('Save Settings', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button button-primary" id="submit-others" name="submit-save">
+        <input type="submit" value="<?php _e('Reset', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button" id="reset-others" name="submit-reset">
+    </p>
+</form>

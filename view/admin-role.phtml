@@ -1,0 +1,50 @@
+<form action="admin.php?page=wptkt&mod=role-setting&action=save-role-setting" method="post">
+    <?php if ($wptktAdmin->klickTippL()) : $bKlickTipp = FALSE;?>
+        <div class="updated">
+            <p>
+                <?php echo sprintf(__('You want activate all your user roles plus opt-in IDs? Then get your <a href="%s" target="_blank">premium license</a> here.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), $wptktAdmin->getPromoUrl()); ?>
+            </p>
+        </div>
+	<?php else: $bKlickTipp = TRUE;?>
+	<?php endif; ?>
+    <table cellspacing="0" class="wptkt_table widefat">
+        <thead>
+            <tr>
+                <th colspan="3"><?php _e('Role Settings', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <b><?php _e('Role', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></b>
+                </td>
+                <td class="text-center">
+                    <b><?php _e('Enable', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></b>
+                </td>
+                <td>
+                    <b><?php _e('Double-Opt-In-Process-ID', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></b>
+                </td>
+            </tr>
+            <?php foreach ($wptktAdmin->getUserRoles() AS $roleSlug => $role) : ?>
+                <tr>
+                    <td>
+                        <?php echo $role['name']; ?>
+                    </td>
+                    <td class="text-center">
+                        <input type="checkbox" name="<?php echo $roleSlug; ?>_enabled" value="1" <?php echo get_option('wptkt_role_' . $roleSlug) == '1' ? 'checked' : ''; ?> <?php if (!$bKlickTipp && ($roleSlug != 'customer' && $roleSlug != 'subscriber' && $roleSlug != 'guest') ) { echo 'disabled'; } ?>/>
+                    </td>
+                    <td>
+                    	<?php if ($bKlickTipp) : ?>
+                        <input type="text" name="<?php echo $roleSlug; ?>_id" value="<?php echo get_option('wptkt_role_' . $roleSlug . '_id'); ?>" />
+                        <?php else: ?>
+                        <?php echo sprintf(__('You want to specify a Double-Opt-In-Process-ID per user role? Get a <a href="%s" target="_blank">premium license</a>.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), $wptktAdmin->getPromoUrl()); ?>
+                   		<?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <p class="submit">
+        <input type="submit" value="<?php _e('Save Changes', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button-primary" />
+    </p>
+</form>

@@ -1,0 +1,89 @@
+<div class="container clearfix">
+    <div class="col-fifty-fifty">
+        <form action="admin.php?page=wptkt&mod=account&action=save-account" method="post">
+            <table class="form-table widefat">
+              <thead>
+                  <tr>
+                      <th colspan="3"><?php _e('Klick-Tipp API Options', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+                  </tr>
+              </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <label for="api"><?php _e('Choose Klick-Tipp Country', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                        </th>
+                        <td>
+                            <select name="account-api">
+                                <?php foreach($wptktAdmin->getApiSelect() AS $key => $apiValue) : ?>
+                                    <option value="<?php echo $key; ?>" <?php echo $apiValue->selected; ?>>
+                                        <?php echo $apiValue->name; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="account-username"><?php _e('Username', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" name="account-username" value="<?php echo get_option('wptkt_klicktipp_username'); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="account-password"><?php _e('Password', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                        </th>
+                        <td>
+                            <input type="password" name="account-password" value="<?php echo get_option('wptkt_klicktipp_password'); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="account-apikey"><?php _e('API Key (/Listbuilding/neues Listbuilding/API Key)', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" name="account-apikey" value="<?php echo get_option('wptkt_klicktipp_apikey'); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="account-prozess-id"><?php _e('Double-Opt-In-Prozess-ID: (<a target="_blank" href="https://www.klick-tipp.com/lists/me">https://www.klick-tipp.com/lists/me</a>) Alternative ID the plugin will use instead of the predefined ID in Klick-Tipp.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                        </th>
+                        <td>
+                            <input type="text" name="account-prozess-id" value="<?php echo get_option('wptkt_klicktipp_prozess-id'); ?>" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="submit">
+                <input type="submit" value="<?php _e('Save Account', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button-primary" />
+            </p>
+        </form>
+    </div>
+    <div class="col-fifty-fifty">
+      <table class="form-table widefat">
+      <body>
+        <tr>
+
+            <td>
+                <h3><?php _e('You don\'t have an Klick-Tipp Account?', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></h3>
+                <p>
+                    <a class="button" title="Klick-Tipp Account" href="https://www.splittest-club.com/club/splittest.php?test=13165" target="_blank" rel="nofollow"><?php _e('Get a new Account', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></a>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <b><?php _e('Special Offer', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>:</b><br />
+                    <?php _e('Extrem reduced Klick-Tipp Versions when you finish the webinar.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?><br />
+                    <a  class="button" title="Klick-Tipp Webinar" href="https://www.splittest-club.com/club/splittest.php?test=13168" target="_blank" rel="nofollow"><?php _e('Watch Webinar', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></a>
+                </p>
+            </td>
+        </tr>
+
+        </tbody>
+        </table>
+    </div>
+</div>

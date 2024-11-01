@@ -1,0 +1,72 @@
+<table cellspacing="0" class="wptkt_table widefat">
+    <thead>
+        <tr>
+            <th><form method="post" action="admin.php?page=wptkt&mod=settings&action=save-settings">
+            <h2><?php _e('<a href="https://www.youtube.com/watch?v=IRQzjAWtmZw" rel="friend" target="_blank"><strong>Bitte schau dir das Video an! "Warum WooEMI tot ist und WP2LEADS lebt!"</br></strong></a>', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></h2>
+                <h3><?php _e('Activate Data Transmission', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></h3>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>  <select name="plugin-activate">
+                  <option value="" <?php if (get_option('wptkt-plugin-active') == '') { echo "selected"; } ?>>
+                      <?php _e('>> Inactive <<', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                  </option>
+                  <option value="klicktipp" <?php if (get_option('wptkt-plugin-active')== 'klicktipp') { echo "selected"; } ?>>
+                      <?php _e('Klick-Tipp', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                  </option>
+                  <option value="autoresponder" <?php if (get_option('wptkt-plugin-active') == 'autoresponder') { echo "selected"; } ?>>
+                      <?php _e('Autoresponder', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                  </option>
+              </select>
+              <div class="submit">
+                  <input type="submit" name="update_klicktippListbuilding" value="<?php _e('Save', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button button-primary" />
+              </div>
+          </form>
+          </td>
+        </tr>
+      </tbody>
+</table>
+<table cellspacing="0" class="wptkt_table widefat">
+    <thead>
+        <tr>
+            <th><?php _e('Check the software requirements', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php _e('check your software requirements to use all of the plugins functionality.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" border="0">
+                    <tr>
+                        <th scope="row"><?php _e('WooCommerce is activated', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></th>
+                        <td><?php echo '<img src="'.WP_TO_KLICK_TIPP_URL.'/assets/img/'.(WC_ACTIVE_FLAG ? 'accepted_32.png' : 'cancel_32.png').'" alt=""/>'; ?></td>
+                    </tr>
+                    <tr>
+
+                        <th scope="row"><?php _e('PHP version', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); echo '&nbsp;('.phpversion().')'; ?></th>
+                        <td><?php
+        $iPhpVersion = preg_replace("/[^0-9]/","",substr(phpversion(),0,3)); // use phpversion() for server with PHP< 5.3
+		echo '<img src="'.WP_TO_KLICK_TIPP_URL.'/assets/img/'.($iPhpVersion < 54 ? 'cancel_32.png' : 'accepted_32.png').'" alt=""/>'; ?>
+                      </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><?php _e('License', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                       </th>
+                        <td>
+                                    <p class="about-description">
+                                        <?php echo $wptktAdmin->getVersion(); ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

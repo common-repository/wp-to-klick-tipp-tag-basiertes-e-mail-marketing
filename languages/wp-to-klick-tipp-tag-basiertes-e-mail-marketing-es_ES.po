@@ -1,0 +1,535 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP und WOO zu allen E-Mail-Marketing Anbietern\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Sat Jun 13 2015 10:03:53 GMT+0200 (Mitteleuropäische Sommerzeit)\n"
+"PO-Revision-Date: 2016-12-20 16:24+0100\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;"
+"esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Loco-Target-Locale: es_ES\n"
+"Last-Translator: Tobias Conrad <tobiasconrad@leupus.de>\n"
+"Language: es\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "%s order processing in background."
+msgid_plural "%s orders processing in background."
+msgstr[0] "%s orden de procesamiento en segundo plano."
+msgstr[1] "%s orden de procesamiento en segundo plano."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:634
+msgid "All log data deleted."
+msgstr "Todos los datos de registro de borrados."
+
+#: ../view/admin-export.phtml:55
+msgid "user with orders"
+msgstr "usuario con órdenes"
+
+#: ../view/admin-export.phtml:56
+msgid "user with orders within the last 6 months"
+msgstr "usuario con órdenes dentro de los últimos 6 meses"
+
+#: ../view/admin-requirement.phtml:4
+msgid "Check the software requirements"
+msgstr "Compruebe los requisitos de software"
+
+#: ../view/admin-requirement.phtml:9
+msgid "check your software requirements to use all of the plugins functionality."
+msgstr "consultar los requisitos de software para utilizar toda la funcionalidad de plugins."
+
+#: ../wp-to-klick-tipp.inc.php:118
+msgid "Please install PHP version 5.4 or above on your server."
+msgstr "Por favor, instalar PHP versión 5.4 o superior en su servidor."
+
+#: ../wp-to-klick-tipp.inc.php:157
+msgid ""
+"Set up a date when you want to start sending an follow-up email to your customers, who bought this product.<br /> Accociate customer with an existing Klick-Tipp date/time field.<br /> Please create date/time field manually inside Klick-"
+"Tipp (/ContactCloud/NewField)"
+msgstr ""
+"Establecer una fecha en la que desea iniciar el envío de un correo electrónico de seguimiento a sus clientes, que compraron este producto. <br /> Accociate cliente con un campo de tiempo existente Klick-Tipp fecha /. <br /> Por favor, "
+"cree campo de fecha / hora manualmente dentro de Klick-Tipp (/ ContactCloud / NewField)"
+
+#: ../wp-to-klick-tipp.inc.php:213
+msgid "<p><b>Your %s Version is outdated and stopped working!</b></p><p>Please update the plugin: <a href=\"plugins.php?plugin_status=upgrade\">Go to the update.</a></p>"
+msgstr "<p> <b>%s versión es obsoleta y dejó de funcionar!</b> </p><p> Por favor, cargar la versión más actualizada aquí: <a href=\"plugins.php?plugin_status=upgrade\">Plugin</a></p>"
+
+#: ../wp-to-klick-tipp.inc.php:217
+msgid "<p><b>Your %s Version nearly outdated and will stopped working with the release of the next version!</b></p><p>Please update the plugin: <a href=\"plugins.php?plugin_status=upgrade\">Go to the update.</a></p>"
+msgstr "<p> <b>%s Versión casi obsoleta y voluntad dejó de funcionar con el lanzamiento de la próxima versión!</b> </p><p> Por favor, cargar la versión más actualizada aquí: <a href=\"plugins.php?plugin_status=upgrade\">Plugin</a> </p>"
+
+#: ../view/admin-export.phtml:19
+msgid ""
+"Use the CSV Export for the initial user data transfer.<br /> Your future data will be synced automatically and action based via the plugin.<br /><br /><strong>All Autoresponder:</strong> Please look at the import tutorials from your "
+"email marketing provider.<br /><br /> <strong>Klick-Tipp:</strong> You can import your existing data directly into Klick-Tipp when you are running a Klick-Tipp Enterprise Version. (/ContactCloud/Import)<br />If you do not have a Klick-"
+"Tipp Enterprise Version, <a href=\"https://www.klick-tipp.com/bestellen/15194\" target=\"_blank\">buy one here</a>, if you want to stay with your version contact the support at <a href=\"mailto:hilfe@klick-tipp.com\">hilfe@klick-tipp."
+"com.</a><br />Please add the below generated file to your request.<br /><br />Here you can get your CSV file:<br />"
+msgstr ""
+
+#: ../view/admin-export.phtml:66
+msgid ""
+"<br />Data in CSV file:<br />Email address, name, company, address, phone, tagging: order status, products, categories, money spent and order within last 3/6 month<br />The CSV file is tab and comma separated with quotation marks as "
+"text delimiter<br /><b>At the moment CSV Export working only when WooCommerce is installed and if there are some orders.</b>"
+msgstr ""
+"<br /> Los datos en el archivo CSV: <br /> dirección de correo electrónico, nombre, compañía, dirección, teléfono, etiquetado: estado de los pedidos, productos, categorías, el dinero gastado y el orden dentro de los últimos 3/6 meses "
+"<br /> El archivo CSV es pestaña y separados por comas entre comillas como delimitador de texto <br /> <b>En el momento de exportación CSV de trabajo sólo cuando WooCommerce está instalado y si hay algunas órdenes.</b>"
+
+#: ../view/admin-account.phtml:59
+msgid "Extrem reduced Klick-Tipp Versions when you finish the webinar."
+msgstr "Extrem versiones reducidas Klick-Tipp cuando termine el seminario."
+
+#: ../view/admin-role.phtml:5
+msgid "You want activate all your user roles plus opt-in IDs? Then get your <a href=\"%s\" target=\"_blank\">premium license</a> here."
+msgstr "¿Quieres activar todas sus funciones de usuario más identificadores de opt-in? A continuación, obtener su <a href=\"%s\" target=\"_blank\">licencia prima</a> aquí."
+
+#: ../view/admin-role.phtml:25
+msgid "Set alternative Double Opt-In Prozess-ID<br /> for e.g. guest Customer (/automatisation/Double-Opt-In process)<br />Only enter Double Opt-In process-ID here when it differs from default process-ID!"
+msgstr "Conjunto alternativo Doble Opt-In-ID Prozess <br /> por ejemplo invitados al cliente (/ automatización / Double-Opt-En proceso) <br /> Sólo entrar Doble Opt-In-ID proceso cuando éste es diferente del proceso predeterminado Id!"
+
+#: ../wp-to-klick-tipp.inc.php:112
+msgid "Please set up your <a href=\"admin.php?page=wptkt&mod=account\">Klick-Tipp API credentials</a>. Until done you cannot use "
+msgstr "Por favor, configurar sus <a href=\"admin.php?page=wptkt&mod=account\">credenciales de API Klick-Tipp</a> . Hasta que esté hecho no se puede utilizar"
+
+#: ../wp-to-klick-tipp.inc.php:124
+msgid "Your WooEMI premium license got invalid! To use all features please update your license key."
+msgstr "Su licencia no válida prima WooEMI consiguió! Para utilizar todas las características por favor, actualice la clave de licencia."
+
+#: ../wp-to-klick-tipp.inc.php:137
+msgid "WP to Klick-Tipp"
+msgstr "WP de Klick-Tipp"
+
+#: ../wp-to-klick-tipp.inc.php:159
+msgid "Follow-Up Email Start Date"
+msgstr "Seguimiento de correo electrónico Fecha de Inicio"
+
+#: ../wp-to-klick-tipp.inc.php:163
+msgid "Associated Klick-Tipp Field"
+msgstr "Asociada Klick-Tipp Campo"
+
+#: ../wp-to-klick-tipp.inc.php:165
+msgid "Do not send to Klick-Tipp"
+msgstr "No envíe a Klick-Tipp"
+
+#. translators: plugin header field 'Name'
+#: ../wp-to-klick-tipp.php:40
+msgid "Wordpress to Klick-Tipp"
+msgstr "Wordpress para Klick-Tipp"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:62 ../inc/class.wp-to-klick-tipp-admin. php:62
+msgid "WooEMI Settings"
+msgstr "Ajustes WooEMI"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:133
+msgid "You just run the cron manually."
+msgstr "Usted acaba de ejecutar el cron manualmente."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:142
+msgid "License key deleted successfully"
+msgstr "clave de licencia ha eliminado correctamente"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:143
+msgid "license key deleted"
+msgstr "clave de licencia de suprimirse"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:150
+msgid "Please enter your email address."
+msgstr "Por favor escribe tu correo electrónico"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:152
+msgid "Please enter your license key."
+msgstr "Introduzca su clave de licencia."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:159
+msgid "Saved successfully"
+msgstr "COE solicitó éxito por número BOL"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:160
+msgid "Credentials (email and/or key) changed"
+msgstr "(Credenciales de correo electrónico y / o clave) cambiaron"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:162 ../inc/class.wp-to-klick-tipp- admin.php:163
+msgid "Wrong API Credentials"
+msgstr "Las credenciales de API equivocadas"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:185
+msgid "Please enter your Klick-Tipp username."
+msgstr "Por favor, introduzca su nombre de usuario Klick-Tipp."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:187
+msgid "Please enter your Klick-Tipp password."
+msgstr "Por favor, introduzca su contraseña Klick-Tipp."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:189
+msgid "Please check your Klick-Tipp API key."
+msgstr "Por favor, compruebe su clave API Klick-Tipp."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:196 ../inc/class.wp-to-klick-tipp- admin.php:197
+msgid "Klick-Tipp Account Saved Successfully"
+msgstr "Klick-Tipp cuenta guardada con éxito"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:199 ../inc/class.wp-to-klick-tipp- admin.php:200
+msgid "Wrong Klick-Tipp Credentials"
+msgstr "Las credenciales equivocadas Klick-Tipp"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:242
+msgid "It is not possible to validate your license, because of a server error. Please install PHP module cURL on this server.<br>"
+msgstr "No es posible validar su licencia, debido a un error en el servidor. Por favor, instale el módulo PHP cURL en este servidor. <br>"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:243
+msgid "PHP cURL missing."
+msgstr "PHP cURL faltante."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:248
+msgid "License URL is not reachable, at the moment. Please try again later.<br>"
+msgstr "URL licencia no es accesible, por el momento. Por favor, inténtelo de nuevo más tarde. <br>"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:249
+msgid "License URL not reachable."
+msgstr "URL licencia no alcanzable."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:358 ../view/admin-license.phtml:3
+msgid "License"
+msgstr "Licencia"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:363 ../view/admin-account.phtml:3
+msgid "Klick-Tipp API Options"
+msgstr "Opciones de API Klick-Tipp"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:368 ../view/admin-export.phtml:13
+msgid "CSV Export"
+msgstr "Exportar CSV"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:373 ../view/admin-role.phtml:13
+msgid "Role Settings (Klick-Tipp)"
+msgstr "Configuración de rol (Klick-Tipp)"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:378 ../view/admin-log.phtml:4
+msgid "Log View"
+msgstr "Vista de registro"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:383
+msgid "Requirement"
+msgstr "Requisito"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:424
+msgid "Not transferred any data to Klick-Tipp."
+msgstr "No se transfieren los datos a Klick-Tipp."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:427
+msgid "So far, no file has been created."
+msgstr "Hasta el momento, ningún archivo ha sido creado."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:471
+msgid "Thank you for using the <b>Free Version</b>. <br /><a target=\"_blank\" href=\"%s\">Please upgrade to Premium</a> to get full data <br />transferred and all functions activated."
+msgstr "Gracias por utilizar la <b>versión gratuita.</b> <br /> <a target=\"_blank\" href=\"%s\">Por favor actualizar a Premium</a> para obtener datos completa <br /> transferidos y todas las funciones activadas."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:472
+msgid "</b>Premium Version active</b><br /> Thank you for using the Premium Version."
+msgstr "Versión prima activa <br /> Gracias por utilizar la versión Premium."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:522
+msgid "Germany"
+msgstr "Alemania"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:525
+msgid "Brasil"
+msgstr "Brasil"
+
+#: ../view/admin.phtml:3
+msgid "WooEMI + WP-EMI - Email Marketing Integration"
+msgstr "WooEMI   WP-EMI - Email Marketing Integración"
+
+#: ../view/admin.phtml:9
+msgid "Sync is deactivated. Enter your correct Klick-Tipp credentials."
+msgstr "Sync está desactivado. Introduzca sus credenciales Klick-Tipp correctas."
+
+#: ../view/admin-log.phtml:10
+msgid "See the last entries from the log file."
+msgstr "Ver las últimas entradas del archivo de registro."
+
+#: ../view/admin-log.phtml:18
+msgid "Time"
+msgstr "Hora"
+
+#: ../view/admin-log.phtml:19
+msgid "Module"
+msgstr "Módulo"
+
+#: ../view/admin-log.phtml:20
+msgid "Message"
+msgstr "Mensaje:"
+
+#: ../view/admin-log.phtml:39
+msgid "Delete All"
+msgstr "Eliminar todos"
+
+#: ../view/admin-export.phtml:4
+msgid ""
+"You can not export your legacy data with the free version!<br /> In the premium version you can export <strong>WooCommerce<br /> customer, order data</strong> and <strong>Wordpress user</strong>.<br /> Please get your <a href=\"%s\" "
+"target=\"_blank\"><strong>Premium License</strong></a> here."
+msgstr ""
+"No se puede exportar los datos existentes con la versión gratuita! <br /> En la versión de pago puede exportar <strong>WooCommerce <br /> cliente, los datos de orden</strong> y <strong>de usuario de Wordpress.</strong> <br /> Por "
+"favor, obtener su <a href=\"%s\" target=\"_blank\"><strong>licencia de primera calidad</strong></a> aquí."
+
+#: ../view/admin-export.phtml:24
+msgid "Last CSV Export"
+msgstr "Exportar CSV"
+
+#: ../view/admin-export.phtml:34
+msgid "Export"
+msgstr "Exportar"
+
+#: ../view/admin-export.phtml:39
+msgid "all data"
+msgstr "Todos los datos"
+
+#: ../view/admin-export.phtml:40
+msgid "Only new data."
+msgstr "Solamente los nuevos datos."
+
+#: ../view/admin-export.phtml:42 ../view/admin-export.phtml:58
+msgid "Only available in premium version"
+msgstr "Sólo en la versión actualizada"
+
+#: ../view/admin-export.phtml:49
+msgid "Which data?"
+msgstr "¿Qué datos?"
+
+#: ../view/admin-export.phtml:54
+msgid "all user"
+msgstr "todos los usuarios"
+
+#: ../view/admin-export.phtml:74
+msgid "download file"
+msgstr "descarga el archivo"
+
+#: ../view/admin-requirement.phtml:15
+msgid "WooCommerce is activated"
+msgstr "WooCommerce se activa"
+
+#: ../view/admin-requirement.phtml:19
+msgid "PHP version"
+msgstr "Versión de PHP"
+
+#: ../view/admin-requirement.phtml:27
+msgid "IonCube Loader<br >(you need it to run our premium version)"
+msgstr "IonCube cargadora <br > (Que lo necesite para ejecutar nuestra versión de pago)"
+
+#: ../view/admin-account.phtml:9
+msgid "Choose Klick-Tipp Country"
+msgstr "Elija Klick-Tipp País"
+
+#: ../view/admin-account.phtml:23
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: ../view/admin-account.phtml:31
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../view/admin-account.phtml:39
+msgid "API Key (/Listbuilding/neues Listbuilding/API Key"
+msgstr "API Key (/ Listbuilding / Neues Listbuilding / API Key"
+
+#: ../view/admin-account.phtml:48
+msgid "Save Account"
+msgstr "Guardar Cuenta"
+
+#: ../view/admin-account.phtml:53
+msgid "You don't have an Klick-Tipp Account?"
+msgstr "Usted no tiene una cuenta de Klick-Tipp?"
+
+#: ../view/admin-account.phtml:55
+msgid "Get a new Account"
+msgstr "Consigue una nueva cuenta"
+
+#: ../view/admin-account.phtml:58
+msgid "Special Offer"
+msgstr "Oferta Especial"
+
+#: ../view/admin-account.phtml:60
+msgid "Watch Webinar"
+msgstr "reloj Webinar"
+
+#: ../view/admin-role.phtml:19
+msgid "Role"
+msgstr "Rol"
+
+#: ../view/admin-role.phtml:22
+msgid "Enable"
+msgstr "Activar"
+
+#: ../view/admin-role.phtml:40
+msgid "You want to specify a Double-Opt-In-Process-ID per user role? Get a <a href=\"%s\" target=\"_blank\">premium license</a>."
+msgstr "Desea especificar un doble opt-in-process-id por rol de usuario? Obtener una <a href=\"%s\" target=\"_blank\">licencia premium</a> ."
+
+#: ../view/admin-role.phtml:48
+msgid "Save Changes"
+msgstr "Grabar Cambios"
+
+#: ../view/admin-license.phtml:13
+msgid "Enter your License here:"
+msgstr "Introduzca su licencia aquí:"
+
+#: ../view/admin-license.phtml:19
+msgid "Email"
+msgstr "Email"
+
+#: ../view/admin-license.phtml:27
+msgid "License Key"
+msgstr "Clave de licencia"
+
+#: ../view/admin-license.phtml:35
+msgid "Delete License"
+msgstr "Eliminar Licencia"
+
+#: ../view/admin-license.phtml:38
+msgid "Check and press button below to delete license key permanently."
+msgstr "Comprobar y a continuación pulse el botón para borrar la clave de licencia permanente."
+
+#: ../view/admin-license.phtml:44
+msgid "Save License"
+msgstr "Guardar licencia"
+
+#: ../view/admin-license.phtml:48
+msgid "<a target=\"_blank\" href=\"%s\">Get an additional license key here</a>"
+msgstr "<a target=\"_blank\" href=\"%s\">Obtener una clave de licencia adicional aquí</a>"
+
+#: ../view/admin-license.phtml:47
+msgid "Activate license on this domain"
+msgstr "Activar la licencia en este dominio"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:145
+msgid "Please enter your email"
+msgstr "Por favor, introduce tu email"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:147
+msgid "Please enter your license key"
+msgstr "Introduzca su clave de licencia."
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:145
+msgid "The license has been moved to this domain"
+msgstr "La licencia se ha trasladado a este dominio"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:145
+msgid "The license could not be moved to this domain"
+msgstr "La licencia no se pudo mover a este dominio"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:419
+msgid "Settings"
+msgstr "Ajustes"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:429
+msgid "Autoresponder"
+msgstr "Correo electrónico de respuesta automática"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:478
+msgid "Settings saved successfully"
+msgstr "Ajustes guardados correctamente."
+
+#: ../view/admin-settings.phtml:19
+msgid "Subscribe to newsletter"
+msgstr "Suscríbete a nuestra newsletter"
+
+#: ../wp-to-klick-tipp.inc.php:120
+msgid "<p>Missing data in autoresponder. <a href=\"admin.php?page=wptkt&mod=autoresponder\">Check settings</a></p>"
+msgstr "<p> Los datos que faltan en la respuesta automática. <a href=\"admin.php?page=wptkt&mod=autoresponder\">Compruebe los ajustes</a> </p>"
+
+#: ../wp-to-klick-tipp.inc.php:125
+msgid ""
+"<b>Thanks for using WooEMI and WP-EMI.</b><br />Please adjust the <a href=\"admin.php?page=wptkt\">plugin settings</a> to enable the data sending between<br /> Wordpress & WooCommerce and your autoresponder like MailChimp or Klick-Tipp."
+msgstr ""
+"<b>Gracias por usar WooEMI y WP-EMI.</b> <br /> Por favor, ajuste las <a href=\"admin.php?page=wptkt\">configuraciones de plug-in</a> para permitir el envío de datos entre <br /> Wordpress y WooCommerce y su autoresponder como "
+"MailChimp o Klick-Tipp."
+
+#: ../view/admin-autoresponder-premium.phtml:44
+msgid "Choose a different name to save a new autoresponder."
+msgstr "Elegir un nombre para guardar una nueva respuesta automática."
+
+#: ../view/admin-autoresponder-premium.phtml:40
+msgid "Autoresponder Filter Name"
+msgstr "Nombre del filtro de respuesta automática"
+
+#: ../view/admin-autoresponder.phtml:40
+msgid "Save Settings"
+msgstr "Guardar configuración"
+
+#: ../view/admin-autoresponder-premium.phtml:91
+msgid "WOO Order Status"
+msgstr "Estatus de la Orden"
+
+#: ../view/admin-autoresponder-premium.phtml:49
+msgid "WP User Role"
+msgstr "WP rol de usuario"
+
+#: ../view/admin-autoresponder-premium.phtml:134
+msgid "WOO Product"
+msgstr "WOO Producto"
+
+#: ../view/admin-autoresponder-premium.phtml:177
+msgid "WOO Product Category"
+msgstr "Categoría de productos"
+
+#: ../view/admin-autoresponder-premium.phtml:177
+msgid "HTML Subscription Form Code"
+msgstr "Código del formulario de suscripción HTML"
+
+#: ../view/admin-autoresponder-premium.phtml:18
+msgid "Show Autoresponder"
+msgstr "Mostrar Autoresponder"
+
+#: ../view/admin-autoresponder-premium.phtml:8
+msgid "Select Autoresponderfilter"
+msgstr "Seleccionar Autoresponderfilter"
+
+#: ../view/admin-autoresponder-premium.phtml:62
+msgid "Add All"
+msgstr "Agregar todo"
+
+#: ../view/admin-autoresponder-premium.phtml:63
+msgid "Remove All"
+msgstr "Eliminar todo"
+
+#: ../inc/class.wp-to-klick-tipp-admin.php:721
+msgid "15379"
+msgstr "15379"
+
+#: ../view/admin-autoresponder.phtml:3
+msgid ""
+"With the free version you can only trigger sending data by WooCommerce order status.<br />You want to trigger your autoresponder by <strong>WP User Roles</strong>, <strong>WOO Products</strong>, <strong>WOO Categories</strong>?<br /"
+">You want to sent data to <strong>multiple autoresponder and subscriber lists</strong> at the same time? <br />Then get your <a href=\"%s\" target=\"_blank\"><strong>Premium License</strong></a> now."
+msgstr ""
+"Con la versión gratuita sólo se puede activar el envío de datos por el estado de la orden WooCommerce. <br /> Quiere activar su autoresponder por <strong>WP Funciones de usuario,</strong> <strong>WOO productos,</strong> <strong>WOO "
+"Categorías?</strong> <br /> Que desea enviar datos a <strong>múltiples listas de respuesta automática y abonados</strong> al mismo tiempo? <br /> A continuación, obtener su <a href=\"%s\" target=\"_blank\"><strong>licencia de primera "
+"calidad</strong></a> ahora."
+
+#: ../view/admin-autoresponder.phtml:8
+msgid "Autoresponder Options"
+msgstr "Opciones de respuesta automática"
+
+#: ../view/admin-settings.phtml:2
+msgid "Activate Data Transmission"
+msgstr "Activar la transmisión de datos"
+
+#: ../view/admin-settings.phtml:4
+msgid ">> Inactive <<"
+msgstr "Inactivo"
+
+#: ../view/admin-settings.phtml:15
+msgid "Save"
+msgstr "Guardar"
+
+#: ../view/admin-autoresponder.phtml:68
+msgid "Please paste here only HTML forms, no iframes. More easy the code looks the better.<br /><a href=\"%s\" target=\"_blank\">Access to the tutorial</a> how to create a simple subscription form."
+msgstr "Por favor, pegue aquí sólo formularios HTML, no hay iframes. Más fácil el código se ve mejor. <br /> <a href=\"%s\" target=\"_blank\">El acceso al tutorial de</a> cómo crear un formulario de suscripción simple."
+
+#: ../view/admin-autoresponder.phtml:77
+msgid "This field should be auto filled up, when you paste the simple subscription form code above."
+msgstr "Este campo debe ser automático lleno, al pegar el código sencillo formulario de suscripción anterior."

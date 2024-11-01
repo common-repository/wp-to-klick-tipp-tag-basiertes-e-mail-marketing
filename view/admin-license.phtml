@@ -1,0 +1,60 @@
+<div class="welcome-panel" id="welcome-panel">
+    <div class="welcome-panel-content">
+      <h3><span class="glyphicon glyphicon-tags"></span><?php _e('License', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></h3>
+        <p class="about-description">
+            <?php echo $wptktAdmin->getVersion(); ?>
+        </p>
+    </div>
+</div>
+<?php
+if ($wptktAdmin->checkSystemRequirements()==true) {
+?>
+<p>&nbsp;</p>
+<h3><?php _e('Enter your License here:', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></h3>
+<form action="admin.php?page=wptkt&mod=license&action=save-license" method="post">
+    <table class="form-table widefat">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <label for="blogname"><?php _e('Email', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" name="license-email" value="<?php echo get_option('wptkt_license_email'); ?>" />
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="blogname"><?php _e('License Key', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                </th>
+                <td>
+                    <input type="text" class="regular-text" name="license-key" value="<?php echo get_option('wptkt_license_key'); ?>" />
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <label for="blogname"><?php _e('Delete License', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?></label>
+                </th>
+                <td>
+                    <input type="checkbox" class="" name="license-delete" />&nbsp;<?php _e('Check and press button below to delete license key permanently.', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="submit">
+        <input type="submit" value="<?php _e('Save License', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" class="button-primary" />
+    </p>
+    <p class="submit">
+        <input type="submit" value="<?php _e('Activate license on this domain', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'); ?>" name="wptkt_change_domain" class="button-secondary" />
+    </p>
+</form>
+<p class="description">
+    <?php echo sprintf(__('<a target="_blank" href="%s">Get an additional license key here</a>', 'wp-to-klick-tipp-tag-basiertes-e-mail-marketing'), $wptktAdmin->getPromoUrl()); ?>.
+</p>
+
+<br />
+<p class="description" style="font-size: 90%; color: gray;">
+	<?php echo wptkt_get_affiliate(); ?></br>
+	<?php echo wptkt_get_campaignkey(); ?>
+</p>
+
+<?php } // endif checkSystemRequirements?>
